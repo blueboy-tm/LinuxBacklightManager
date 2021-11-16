@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1120</width>
+    <height>700</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Linux Backlight Manager</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="0">
+     <widget class="QScrollArea" name="scrollArea">
+      <property name="widgetResizable">
+       <bool>true</bool>
+      </property>
+      <widget class="QWidget" name="scrollAreaWidgetContents">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>1100</width>
+         <height>658</height>
+        </rect>
+       </property>
+       <layout class="QGridLayout" name="gridLayout_2">
+        <item row="2" column="1">
+         <widget class="QGroupBox" name="groupBox3">
+          <property name="title">
+           <string>Light Level</string>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_4">
+           <item row="1" column="0">
+            <widget class="QSlider" name="colorLevelSlider">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="2" column="0">
+         <widget class="QGroupBox" name="groupBox2">
+          <property name="title">
+           <string>Backlight Color</string>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_3">
+           <item row="0" column="1">
+            <widget class="QPushButton" name="changeColorLeftButton">
+             <property name="text">
+              <string>Left Keys</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="0">
+            <widget class="QPushButton" name="changeColorAllButton">
+             <property name="text">
+              <string>All Keys</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="3">
+            <widget class="QPushButton" name="changeColorExtraButton">
+             <property name="text">
+              <string>Extra Keys</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="2">
+            <widget class="QPushButton" name="changeColorCenterButton">
+             <property name="text">
+              <string>Center Keys</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="4">
+            <widget class="QPushButton" name="changeColorRightButton">
+             <property name="text">
+              <string>Right Keys</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="5" column="0" colspan="2">
+         <layout class="QGridLayout" name="gridLayout1">
+          <item row="0" column="1">
+           <widget class="QPushButton" name="updateButton">
+            <property name="text">
+             <string>Update</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="2">
+           <widget class="QPushButton" name="rescanButton">
+            <property name="text">
+             <string>Rescan Device</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0">
+           <widget class="QPushButton" name="uninstallButton">
+            <property name="text">
+             <string>Uninstall</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="3">
+           <widget class="QPushButton" name="infoButton">
+            <property name="text">
+             <string>Info</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item row="6" column="0" colspan="2">
+         <spacer name="verticalSpacer">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item row="3" column="0" colspan="2">
+         <widget class="QGroupBox" name="groupBox4">
+          <property name="title">
+           <string>Backlight Mode</string>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_6">
+           <item row="0" column="0">
+            <widget class="QPushButton" name="discoModeButton">
+             <property name="text">
+              <string>Disco</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QPushButton" name="bootEffectModeButton">
+             <property name="text">
+              <string>Boot Effect</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="7" column="0">
+         <layout class="QGridLayout" name="gridLayout2">
+          <item row="0" column="0">
+           <widget class="QPushButton" name="styleChangeButton">
+            <property name="text">
+             <string>Light</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <spacer name="horizontalSpacer_2">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+        <item row="0" column="0" colspan="2">
+         <widget class="QGroupBox" name="groupBox1">
+          <property name="title">
+           <string>Backlight State</string>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_5">
+           <item row="0" column="0">
+            <widget class="QPushButton" name="turnOnButton">
+             <property name="text">
+              <string>Turn On</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QPushButton" name="turnOffButton">
+             <property name="text">
+              <string>Turn Off</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="4" column="0" colspan="2">
+         <widget class="QGroupBox" name="groupBox5">
+          <property name="title">
+           <string>Timer</string>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_7">
+           <item row="1" column="0">
+            <widget class="QLabel" name="label1">
+             <property name="text">
+              <string>Seconds:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QSpinBox" name="spinBox"/>
+           </item>
+           <item row="1" column="2">
+            <widget class="QPushButton" name="saveTimerButton">
+             <property name="text">
+              <string>Save</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="0" colspan="2">
+            <widget class="QLabel" name="label">
+             <property name="text">
+              <string>Turn off backlight if not using keyboard</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="3">
+            <spacer name="horizontalSpacer">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+          </layout>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

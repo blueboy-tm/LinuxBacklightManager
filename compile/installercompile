@@ -1,0 +1,7 @@
+#!/usr/bin/bash
+pyinstaller --onefile --icon ../icon/icon.png --add-data ../icon/icon.png:. --add-data ./app:. ../installer.py
+mv dist/installer .
+rm -rf dist
+rm -rf __pycache__
+rm -rf build
+rm installer.spec
