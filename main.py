@@ -14,7 +14,7 @@ import webbrowser
 
 
 
-APP_VERSION = '1.0.0-beta'
+APP_VERSION = '1.0.0'
 
 
 def get_file(name):
@@ -112,31 +112,39 @@ def run_timer():
 
 
 def boot_effect():
-    colors = ['ff0000', '00ff00', '0000ff', 'ffff00', 'ff00ff', '00ffff', 'ffffff']
+    colors = {'ff0000', '00ff00', '0000ff', 'ffff00', 'ff00ff', '00ffff', 'ffffff'}
+    colors.add(config["left"])
+    colors.add(config["center"])
+    colors.add(config["extra"])
+    colors.add(config["light"])
     color_index = 0
     while effect_is_active:
-        for i in range(255, 0, -3):
+        for i in range(255, 0, -2):
             if not effect_is_active:
                 break
             lbm.brightness(i)
             time.sleep(0.02)
         if not effect_is_active:
             break
-        if color_index == 7:
+        if color_index == len(colors):
             color_index = 0
         lbm.set_color('*', '#'+colors[color_index])
         color_index += 1
-        for i in range(1, 256, 3):
+        for i in range(1, 256, 2):
             if not effect_is_active:
                 break
             lbm.brightness(i)
             time.sleep(0.02)
 
 def disco_effect():
-    colors = ['ff0000', '00ff00', '0000ff', 'ffff00', 'ff00ff', '00ffff', 'ffffff']
+    colors = {'ff0000', '00ff00', '0000ff', 'ffff00', 'ff00ff', '00ffff', 'ffffff'}
+    colors.add(config["left"])
+    colors.add(config["center"])
+    colors.add(config["extra"])
+    colors.add(config["light"])
     color_index = 0
     while effect_is_active:
-        if color_index == 7:
+        if color_index == len(colors):
             color_index = 0
         lbm.set_color('*', '#'+colors[color_index])
         color_index += 1
@@ -164,7 +172,11 @@ def key_shortcutes():
             lbm.set_color('center', '#'+config['center'])
             lbm.set_color('right', '#'+config['right'])
             lbm.set_color('extra', '#'+config['extra'])
-            MainWindow.show()
+            if MainWindow.isHidden:
+                MainWindow.show()
+            else:
+                MainWindow.hide()
+
 
 
 

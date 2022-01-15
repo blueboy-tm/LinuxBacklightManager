@@ -3,7 +3,7 @@ import shutil
 import os
 import sys
 
-APP_VERSION = '1.0.0-beta'
+APP_VERSION = '1.0.0'
 
 if os.geteuid() != 0:
     print("Root Access required, run as `root` user or use `sudo`.")
