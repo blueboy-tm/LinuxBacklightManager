@@ -3,7 +3,7 @@ import shutil
 import os
 import sys
 
-APP_VERSION = '1.0.0-beta'
+APP_VERSION = '1.0.0'
 
 if os.geteuid() != 0:
     print("Root Access required, run as `root` user or use `sudo`.")
@@ -38,7 +38,9 @@ app = os.path.join(getattr(sys, '_MEIPASS'), 'app')
 icon = os.path.join(getattr(sys, '_MEIPASS'), 'icon.png')
 os.system(f"mv {app} /opt/lbm-{APP_VERSION}/LinuxBacklightManager")
 os.system(f"mv {icon} /opt/lbm-{APP_VERSION}/icon.png")
-os.system("chmod -R 777 /opt/lbm-{}".format(APP_VERSION))
+os.system("chmod +r /opt/lbm-{}/LinuxBacklightManager".format(APP_VERSION))
+os.system("chmod +x /opt/lbm-{}/LinuxBacklightManager".format(APP_VERSION))
+os.system("chmod +r /opt/lbm-{}/icon.png".format(APP_VERSION))
 service = f"""[Unit]
 Description=LBM {APP_VERSION}
 After=systemd-user-sessions.service

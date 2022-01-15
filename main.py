@@ -12,9 +12,7 @@ import re
 import webbrowser
 
 
-
-
-APP_VERSION = '1.0.0-beta'
+APP_VERSION = '1.0.0'
 
 
 def get_file(name):
@@ -126,11 +124,11 @@ def boot_effect():
             color_index = 0
         lbm.set_color('*', '#'+colors[color_index])
         color_index += 1
-        for i in range(1, 256, 3):
+        for i in range(1, 256, 2):
             if not effect_is_active:
                 break
             lbm.brightness(i)
-            time.sleep(0.02)
+            time.sleep(0.01)
 
 def disco_effect():
     colors = ['ff0000', '00ff00', '0000ff', 'ffff00', 'ff00ff', '00ffff', 'ffffff']
@@ -164,8 +162,10 @@ def key_shortcutes():
             lbm.set_color('center', '#'+config['center'])
             lbm.set_color('right', '#'+config['right'])
             lbm.set_color('extra', '#'+config['extra'])
-            MainWindow.show()
-
+            if MainWindow.isHidden():
+                MainWindow.show()
+            else:
+                MainWindow.hide()
 
 
 class MyMainWindow(QtWidgets.QMainWindow):
@@ -463,14 +463,8 @@ class Ui_MainWindow(object):
                 "systemctl disable lbm.service;rm /etc/systemd/system/lbm.service;rm /etc/xdg/autostart/lbm.desktop;rm -rf /opt/lbm-"+APP_VERSION+";"\
                     "sed '/tuxedo_keyboard/d' /etc/modules > /etc/modules;reboot"
 
-            
-            fileaddr = os.path.join(os.path.dirname(os.path.abspath(sys.argv[0])), "un000.sh")
-            file = open(fileaddr, "a")
-            file.write(cmd.replace(";", '\n'))
-            file.close()
-            os.popen(f"pkexec bash {fileaddr}")
-            os.kill(os.getpid())
-
+            cmd = cmd.replace(";", "\n")
+            os.popen(f"pkexec bash -c \"{cmd}\"")
 
 
 if __name__ == "__main__":
