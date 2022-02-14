@@ -1,3 +1,4 @@
+from math import fabs
 from PyQt5 import QtCore, QtGui, QtWidgets
 import qdarktheme
 import sys
@@ -12,7 +13,7 @@ import re
 import webbrowser
 
 
-APP_VERSION = '1.0.0'
+APP_VERSION = '1.0.1'
 
 
 def get_file(name):
@@ -456,7 +457,8 @@ class Ui_MainWindow(object):
         quiz = quiz.exec()
 
         if quiz == QtWidgets.QMessageBox.Yes:
-            src =  os.popen("ls /usr/src/ | grep tuxedo").read()
+            lbm.state(False)
+            src =  os.popen("ls /usr/src/ | grep tuxedo").read().strip()
             version = src.replace("tuxedo-keyboard-", "")
             src = src.replace("-"+version, "")
             cmd = f"sleep 2;dkms remove -m {src} -v {version} --all;rm -rf /usr/src/{src}-{version};rm /etc/modprobe.d/tuxedo_keyboard.conf;"\

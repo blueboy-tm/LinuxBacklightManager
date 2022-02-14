@@ -3,7 +3,7 @@ import shutil
 import os
 import sys
 
-APP_VERSION = '1.0.0'
+APP_VERSION = '1.0.1'
 
 if os.geteuid() != 0:
     print("Root Access required, run as `root` user or use `sudo`.")
@@ -11,7 +11,11 @@ if os.geteuid() != 0:
 
 
 print('Start downloading tuxedo keyboard.')
-filename = wget.download("https://github.com/tuxedocomputers/tuxedo-keyboard/archive/refs/heads/master.zip")
+try:
+    filename = wget.download("https://github.com/tuxedocomputers/tuxedo-keyboard/archive/refs/heads/master.zip")
+except Exception:
+    print("Error in download! check your internet connection.")
+    sys.exit()
 
 print('\nStart unpack tuxedo keyboard.')
 shutil.unpack_archive(filename)
@@ -20,12 +24,12 @@ os.remove(filename)
 
 print('Start Compile and install tuxedo keyboard.')
 os.chdir("tuxedo-keyboard-master")
-os.system("make clean")
-os.system("make")
-os.system("make clean")
-os.system("make dkmsinstall")
+os.system("make clean > /dev/null")
+os.system("make > /dev/null")
+os.system("make clean > /dev/null")
+os.system("make dkmsinstall > /dev/null")
 os.system("echo tuxedo_keyboard >> /etc/modules")
-os.system('echo "options tuxedo_keyboard mode=0 color_left=0xFF0000 color_center=0x00FF00 color_right=0x0000FF" > /etc/modprobe.d/tuxedo_keyboard.conf')
+os.system('echo "options tuxedo_keyboard mode=0 color_left=0xFFFFFF color_center=0xFFFFFF color_right=0xFFFFFF" > /etc/modprobe.d/tuxedo_keyboard.conf')
 
 os.chdir("..")
 shutil.rmtree("tuxedo-keyboard-master")
