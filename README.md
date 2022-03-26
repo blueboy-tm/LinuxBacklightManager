@@ -8,6 +8,12 @@ Tested on Tuxedo / Clevo / Monste models. Must be tested on other devices
 
 [Used Kernel](https://github.com/tuxedocomputers/tuxedo-keyboard)
 
+## Dependencies:
+- make
+- gcc
+- linux-headers
+- dkms (Only when using this module with DKMS functionality)
+
 ## Installation
 download lasted Release from [here](https://github.com/blueboy-tm/LinuxBacklightManager/releases)
 after extract:
